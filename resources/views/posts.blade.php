@@ -6,7 +6,7 @@
             </h1>
 
             <div>
-                <p>{{ $post->excerpt }}</p>
+                <p>{{ $post->excert }}</p>
             </div>
         </article>
     @endforeach
