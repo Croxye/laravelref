@@ -23,8 +23,8 @@ class PostFactory extends Factory
             'category_id' => Category::all()->random()->id,
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
-            'excert' => fake()->paragraph(),
-            'body' => fake()->paragraph(10),
+            'excert' => fake()->paragraph(5),
+            'body' => fake()->paragraph(50),
         ];
     }
 }
