@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             $this->command->info('Database refreshed!');
         }
         Category::factory(5)->create();
-        Post::factory(10)->create();
+        Post::factory(50)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
