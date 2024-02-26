@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html {
+    @apply scroll-smooth
+}
