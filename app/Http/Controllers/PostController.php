@@ -23,4 +23,29 @@ class PostController extends Controller
             'post' => $post,
         ]);
     }
+
+    public function store()
+    {
+        $attributes = array_merge(
+            request()->validate([
+                'title' => 'required',
+                'thumbnail' => 'required|image',
+                'slug' => ['required', 'unique:posts'],
+                'excert' => 'required',
+                'body' => 'required',
+                'category_id' => ['required', 'exists:categories,id'],
+            ]),
+            ['user_id' => auth()->id()],
+            ['thumbnail' => request()->file('thumbnail')->store('thumbnails')]
+        );
+
+        Post::create($attributes);
+
+        return redirect('/')->with('success', 'Your post has been created!');
+    }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
 }
